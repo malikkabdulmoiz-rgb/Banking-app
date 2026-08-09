@@ -1,0 +1,73 @@
+{
+ "customers": [
+ {
+ "id": "cust_001",
+ "name": "Ahmed Khan",
+ "email": "ahmed@gmail.com",
+ "accountNumber": "ACC-1001",
+ "balance": 250000,
+ "status": "active"
+ }
+ ],
+ "employees": [
+ {
+ "id": "emp_001",
+ "name": "Ali Raza",
+ "email": "ali@bank.com",
+ "salary": 60000,
+ "role": "employee",
+ "status": "active"
+ }
+ ],
+ "managers": [
+ {
+ "id": "mgr_001",
+ "name": "Usman Malik",
+ "email": "manager@bank.com",
+ "role": "manager"
+ }
+ ],
+ "transactions": [
+ {
+ "id": "txn_001",
+ "customerId": "cust_001",
+ "type": "deposit",
+ "amount": 50000,
+ "status": "approved",
+ "date": "2026-02-20"
+ },
+ {
+ "id": "txn_002",
+ "customerId": "cust_001",
+ "type": "withdraw",
+ "amount": 20000,
+ "status": "pending",
+ "date": "2026-02-21"
+ }
+ ],
+ "loans": [
+ {
+ "id": "loan_001",
+ "customerId": "cust_001",
+ "amount": 800000,
+ "purpose": "Business Expansion",
+ "duration": "12 months",
+ "status": "approved",
+ "approvedBy": "employee",
+ "approvedById": "emp_001"
+ },
+ {
+ "id": "loan_002",
+ "customerId": "cust_001",
+ "amount": 1500000,
+ "purpose": "Property Purchase",
+ "duration": "24 months",
+ "status": "pending",
+ "approvedBy": null
+ }
+ ],
+ "bankSummary": {
+ "totalBalance": 15000000,
+ "totalLoansIssued": 6500000
+ }
+}
