@@ -1,3 +1,5 @@
+import LogoutButton from "../../components/LogoutButton";
+
 function CustomerDashboard() {
   return (
     <div className="dashboard">
@@ -84,6 +86,7 @@ function CustomerDashboard() {
       </main>
     </div>
   );
-}
 
+}
+<LogoutButton />
 export default CustomerDashboard;

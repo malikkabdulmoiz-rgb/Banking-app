@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -5,178 +7,706 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f7fb;
+  font-family: "Inter", sans-serif;
+  background: #000;
+  color: #fff;
 }
+
+/* =========================
+   LOGIN PAGE
+========================= */
 
 .login-page {
   min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(0, 255, 255, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(140, 0, 255, 0.14),
+      transparent 30%
+    ),
+    #000;
 }
+
+
+/* =========================
+   LOGIN FORM
+========================= */
 
 .login-card {
-  width: 400px;
-  background: white;
-  padding: 35px;
-  border-radius: 12px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  width: 420px;
+  padding: 40px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(0, 255, 255, 0.35);
+
+  border-radius: 20px;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.08),
+    inset 0 0 20px rgba(255, 255, 255, 0.02);
+
+  transition: 0.4s ease;
 }
 
+
+/* Form hover */
+
+.login-card:hover {
+  background: rgba(0, 255, 255, 0.08);
+
+  border-color: rgba(0, 255, 255, 0.8);
+
+  box-shadow:
+    0 0 25px rgba(0, 255, 255, 0.25),
+    0 0 60px rgba(0, 255, 255, 0.08),
+    inset 0 0 25px rgba(0, 255, 255, 0.04);
+
+  transform: translateY(-4px);
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.login-logo {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  border-radius: 15px;
+
+  background: rgba(0, 255, 255, 0.08);
+
+  border: 1px solid #00ffff;
+
+  color: #00ffff;
+
+  font-size: 28px;
+
+  box-shadow:
+    0 0 15px rgba(0, 255, 255, 0.25);
+}
+
+
 .login-card h1 {
+  font-size: 28px;
   margin-bottom: 8px;
 }
 
 .login-card p {
-  color: #777;
-  margin-bottom: 25px;
-}
-
-.login-card input,
-.login-card select {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-}
-
-.login-card button,
-.actions button {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 6px;
-  background: #1d4ed8;
-  color: white;
-  cursor: pointer;
-}
-
-.login-card button {
-  width: 100%;
-}
-
-.dashboard {
-  display: flex;
-  min-height: 100vh;
-}
-
-.sidebar {
-  width: 230px;
-  background: #111827;
-  color: white;
-  padding: 25px;
-}
-
-.sidebar h2 {
+  color: #999;
+  font-size: 14px;
   margin-bottom: 30px;
 }
 
-.sidebar button {
-  display: block;
+
+/* =========================
+   INPUTS
+========================= */
+
+.login-card input,
+.login-card select {
+
   width: 100%;
-  padding: 12px;
-  margin-bottom: 10px;
-  background: transparent;
-  color: white;
-  border: none;
-  text-align: left;
-  cursor: pointer;
+  height: 50px;
+
+  margin-bottom: 17px;
+
+  padding: 0 15px;
+
+  color: #fff;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  border: 1px solid rgba(0, 255, 255, 0.35);
+
+  border-radius: 10px;
+
+  outline: none;
+
+  font-size: 14px;
+
+  transition: 0.3s ease;
 }
+
+
+/* Input hover */
+
+.login-card input:hover,
+.login-card select:hover {
+
+  border-color: #00ffff;
+
+  background: rgba(0, 255, 255, 0.05);
+
+  box-shadow:
+    0 0 12px rgba(0, 255, 255, 0.15);
+}
+
+
+/* Input focus */
+
+.login-card input:focus,
+.login-card select:focus {
+
+  border-color: #ff00ff;
+
+  background: rgba(255, 0, 255, 0.06);
+
+  box-shadow:
+    0 0 10px rgba(255, 0, 255, 0.25),
+    0 0 25px rgba(255, 0, 255, 0.08);
+}
+
+
+/* Placeholder */
+
+.login-card input::placeholder {
+  color: #777;
+}
+
+
+/* Select option */
+
+.login-card select option {
+  background: #111;
+  color: white;
+}
+
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
+.login-card button {
+
+  width: 100%;
+  height: 50px;
+
+  margin-top: 8px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #00ffff,
+    #0077ff
+  );
+
+  color: #000;
+
+  border: 2px solid #00ffff;
+
+  outline: none;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  box-shadow:
+    0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+
+/* Button hover */
+
+.login-card button:hover {
+
+  background: linear-gradient(
+    135deg,
+    #ff00ff,
+    #7b00ff
+  );
+
+  color: #fff;
+
+  border-color: #ff00ff;
+
+  box-shadow:
+    0 0 15px rgba(255, 0, 255, 0.4),
+    0 0 35px rgba(255, 0, 255, 0.15);
+
+  transform: translateY(-2px);
+}
+
+
+/* Button click */
+
+.login-card button:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard {
+
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(0, 255, 255, 0.06),
+      transparent 25%
+    ),
+    #000;
+
+  display: flex;
+
+  color: white;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+
+  width: 250px;
+
+  min-height: 100vh;
+
+  position: fixed;
+
+  left: 0;
+  top: 0;
+
+  padding: 25px 18px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  border-right: 1px solid rgba(0, 255, 255, 0.2);
+
+  backdrop-filter: blur(20px);
+}
+
+
+.sidebar h2 {
+
+  color: #00ffff;
+
+  margin-bottom: 30px;
+
+  text-shadow:
+    0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+
+.sidebar button {
+
+  width: 100%;
+
+  padding: 13px;
+
+  margin-bottom: 7px;
+
+  background: transparent;
+
+  color: #aaa;
+
+  border: 1px solid transparent;
+
+  border-radius: 9px;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+
+.sidebar button:hover {
+
+  color: #00ffff;
+
+  background: rgba(0, 255, 255, 0.05);
+
+  border-color: rgba(0, 255, 255, 0.5);
+
+  box-shadow:
+    0 0 12px rgba(0, 255, 255, 0.1);
+}
+
+
+/* =========================
+   CONTENT
+========================= */
 
 .content {
-  flex: 1;
-  padding: 35px;
+
+  width: calc(100% - 250px);
+
+  margin-left: 250px;
+
+  padding: 40px;
 }
+
+
+.content > h1 {
+
+  font-size: 30px;
+
+  color: white;
+
+  margin-bottom: 8px;
+}
+
 
 .welcome {
-  background: white;
-  padding: 25px;
-  border-radius: 10px;
-  margin: 20px 0;
+
+  color: #888;
+
+  margin-bottom: 25px;
 }
 
+
+/* =========================
+   CARDS
+========================= */
+
 .cards {
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
   gap: 20px;
 }
 
+
 .card {
-  background: white;
+
   padding: 25px;
-  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(0, 255, 255, 0.25);
+
+  border-radius: 15px;
+
+  backdrop-filter: blur(15px);
+
+  transition: 0.3s ease;
 }
+
+
+.card:hover {
+
+  background:
+    rgba(0, 255, 255, 0.08);
+
+  border-color: #00ffff;
+
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.15);
+
+  transform: translateY(-5px);
+}
+
 
 .card h3 {
-  color: #666;
-  margin-bottom: 10px;
+
+  color: #888;
+
+  font-size: 13px;
+
+  margin-bottom: 12px;
 }
+
+
+.card h2 {
+
+  color: #00ffff;
+
+  font-size: 27px;
+
+  text-shadow:
+    0 0 10px rgba(0, 255, 255, 0.25);
+}
+
+
+/* =========================
+   TABLE SECTION
+========================= */
 
 .section {
-  background: white;
+
   margin-top: 25px;
+
   padding: 25px;
-  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(0, 255, 255, 0.2);
+
+  border-radius: 15px;
+
+  backdrop-filter: blur(15px);
+
+  transition: 0.3s;
 }
 
-.actions {
-  display: flex;
-  gap: 15px;
-  margin-top: 15px;
+
+.section:hover {
+
+  border-color:
+    rgba(0, 255, 255, 0.5);
+
+  background:
+    rgba(0, 255, 255, 0.04);
 }
+
+
+.section h2 {
+
+  margin-bottom: 20px;
+
+  color: white;
+}
+
+
+/* =========================
+   TABLE
+========================= */
 
 table {
+
   width: 100%;
+
   border-collapse: collapse;
-  margin-top: 15px;
 }
 
-th,
-td {
-  padding: 14px;
-  border-bottom: 1px solid #eee;
+
+th {
+
+  color: #00ffff;
+
+  font-size: 12px;
+
   text-align: left;
+
+  padding: 15px;
+
+  border-bottom:
+    1px solid rgba(0, 255, 255, 0.2);
 }
+
+
+td {
+
+  padding: 15px;
+
+  color: #bbb;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+tbody tr {
+
+  transition: 0.2s;
+}
+
+
+tbody tr:hover {
+
+  background:
+    rgba(0, 255, 255, 0.05);
+}
+
+
+/* =========================
+   TABLE BUTTONS
+========================= */
 
 .small-btn {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 5px;
-  background: #2563eb;
-  color: white;
+
+  background: rgba(0, 255, 255, 0.08);
+
+  color: #00ffff;
+
+  border: 1px solid #00ffff;
+
+  padding: 8px 13px;
+
+  border-radius: 7px;
+
   cursor: pointer;
+
+  transition: 0.3s;
 }
+
+
+.small-btn:hover {
+
+  background: #00ffff;
+
+  color: #000;
+
+  box-shadow:
+    0 0 15px rgba(0, 255, 255, 0.3);
+}
+
 
 .approve-btn {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 5px;
-  background: #16a34a;
-  color: white;
+
+  background: rgba(0, 255, 120, 0.08);
+
+  color: #00ff88;
+
+  border: 1px solid #00ff88;
+
+  padding: 8px 13px;
+
+  border-radius: 7px;
+
   cursor: pointer;
-  margin-right: 8px;
+
+  margin-right: 7px;
 }
+
+
+.approve-btn:hover {
+
+  background: #00ff88;
+
+  color: #000;
+
+  box-shadow:
+    0 0 15px rgba(0, 255, 136, 0.3);
+}
+
 
 .reject-btn {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 5px;
-  background: #dc2626;
-  color: white;
+
+  background: rgba(255, 0, 70, 0.08);
+
+  color: #ff3366;
+
+  border: 1px solid #ff3366;
+
+  padding: 8px 13px;
+
+  border-radius: 7px;
+
   cursor: pointer;
 }
 
-.add-btn {
-  padding: 10px 18px;
-  border: none;
-  border-radius: 6px;
-  background: #2563eb;
+
+.reject-btn:hover {
+
+  background: #ff3366;
+
   color: white;
-  cursor: pointer;
-  margin: 15px 0;
+
+  box-shadow:
+    0 0 15px rgba(255, 51, 102, 0.3);
 }
 
-button:hover {
-  opacity: 0.85;
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .sidebar {
+    width: 70px;
+  }
+
+  .sidebar h2 {
+    font-size: 0;
+  }
+
+  .sidebar h2::before {
+    content: "🏦";
+    font-size: 22px;
+  }
+
+  .sidebar button {
+    font-size: 0;
+    text-align: center;
+  }
+
+  .content {
+
+    width: calc(100% - 70px);
+
+    margin-left: 70px;
+
+    padding: 20px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+}
+.logout-btn {
+  width: 100%;
+  padding: 12px 15px;
+
+  background: rgba(255, 0, 80, 0.08);
+
+  color: #ff3366;
+
+  border: 1px solid #ff3366;
+
+  border-radius: 9px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #ff3366;
+
+  color: white;
+
+  box-shadow:
+    0 0 15px rgba(255, 51, 102, 0.4);
+
+  transform: translateY(-2px);
 }

@@ -3,7 +3,7 @@ import {
   getCustomers,
   getLoans
 } from "../../api";
-
+import LogoutButton from "../../components/LogoutButton";
 function EmployeeDashboard() {
 
   const [customers, setCustomers] = useState([]);
@@ -209,6 +209,7 @@ function EmployeeDashboard() {
 
     </div>
   );
-}
 
+}
+<LogoutButton />
 export default EmployeeDashboard;

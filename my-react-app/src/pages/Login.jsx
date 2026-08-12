@@ -1,61 +1,90 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+
+import { auth, db } from "../firebase";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [role, setRole] = useState("customer");
-
   const navigate = useNavigate();
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleLogin = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
+    try {
+      // Firebase Authentication
+      const userCredential =
+        await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
 
-  try {
-    const userCredential = await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
+      const user = userCredential.user;
 
-    const user = userCredential.user;
+      // Get user profile from Firestore
+      const userDoc = await getDoc(
+        doc(db, "users", user.uid)
+      );
 
-    console.log("Logged in user:", user);
+      if (!userDoc.exists()) {
+        alert("User profile not found.");
+        return;
+      }
 
-    // Temporary role system
-    localStorage.setItem("userRole", role);
+      const userData = userDoc.data();
 
-    if (role === "customer") {
-      navigate("/customer");
+      console.log("Logged user:", userData);
+
+      // Role based redirect
+      if (userData.role === "customer") {
+        navigate("/customer");
+
+      } else if (userData.role === "employee") {
+        navigate("/employee");
+
+      } else if (userData.role === "manager") {
+        navigate("/manager");
+
+      } else {
+        alert("Invalid user role.");
+      }
+
+    } catch (error) {
+      console.log(error);
+
+      if (error.code === "auth/invalid-credential") {
+        alert("Email or password is incorrect.");
+      } else {
+        alert("Login failed. Please try again.");
+      }
     }
-
-    if (role === "employee") {
-      navigate("/employee");
-    }
-
-    if (role === "manager") {
-      navigate("/manager");
-    }
-
-  } catch (error) {
-    console.log(error);
-
-    alert("Invalid email or password");
-  }
-};
+    navigate("/customer");
+  };
 
   return (
     <div className="login-page">
+
       <div className="login-card">
-        <h1>Banking App</h1>
-        <p>Enterprise Banking Management System</p>
+
+        <div className="login-logo">
+          🏦
+        </div>
+
+        <h1>Welcome Back</h1>
+
+        <p>
+          Sign in to your Banking Management System
+        </p>
 
         <form onSubmit={handleLogin}>
+
           <input
             type="email"
-            placeholder="Email"
+            placeholder="Email Address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -69,20 +98,27 @@ function Login() {
             required
           />
 
-          <select
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-          >
-            <option value="customer">Customer</option>
-            <option value="employee">Employee</option>
-            <option value="manager">Manager</option>
-          </select>
-
           <button type="submit">
             Login
           </button>
+
         </form>
+
+        <button
+          type="button"
+          onClick={() => navigate("/signup")}
+          style={{
+            marginTop: "12px",
+            background: "transparent",
+            color: "#ff00ff",
+            border: "1px solid #ff00ff"
+          }}
+        >
+          Create Customer Account
+        </button>
+
       </div>
+
     </div>
   );
 }

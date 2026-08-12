@@ -1,3 +1,5 @@
+import LogoutButton from "../../components/LogoutButton";
+
 function ManagerDashboard() {
   return (
     <div className="dashboard">
@@ -124,6 +126,8 @@ function ManagerDashboard() {
       </main>
     </div>
   );
+  
 }
+<LogoutButton />
 
 export default ManagerDashboard;
